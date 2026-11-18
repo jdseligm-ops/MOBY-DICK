@@ -1,4 +1,6 @@
-# MOBY-DICK: compact geoneutrino IBD selection and vertex baseline for a 17 kt Ocean Bottom Detector
+# MOBY-DICK: Machine Optimization of Background Yield Discrimination, IBD Classification, and Kinematics 
+
+=> Compact geoneutrino IBD selection and vertex baseline for a 17 kt Ocean Bottom Detector
 
 This repository holds the shipped baseline model (version **v3r**) of the SIDERIUS Track 1 task "OBD 17 kt geoneutrino IBD selection and vertex reconstruction", together with the code that trains and runs it.
 
