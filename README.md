@@ -147,6 +147,14 @@ The overall chain is an original design. Classical methods used with credit: tim
 - binned time-profile pulse-shape discrimination: Rebber et al., JINST 16, P01016 (2021); Cheng et al., EPJC 84, 482 (2024);
 - charge-based event features: Qian et al., NIM A 1010, 165527 (2021).
 
+## Collaboration
+
+This work is part of the Ocean Bottom Detector (OBD) project, a proposed ocean-bottom liquid-scintillator antineutrino detector for geoneutrino studies. The 17 kt detector simulated here is an OBD design study, not a built detector.
+
+Primary members of this project so far:
+- Tohoku University (Japan)
+- University of Hawaiʻi at Mānoa (USA)
+
 ## Licence
 
 See `LICENSE` in this repository.
