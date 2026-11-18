@@ -149,11 +149,13 @@ The overall chain is an original design. Classical methods used with credit: tim
 
 ## Collaboration
 
-This work is part of the Ocean Bottom Detector (OBD) project, a proposed ocean-bottom liquid-scintillator antineutrino detector for geoneutrino studies. The 17 kt detector simulated here is an OBD design study, not a built detector.
+**The detector.** The Ocean Bottom Detector (OBD) project aims to deploy a kiloton-scale liquid-scintillator antineutrino detector directly on the ocean floor. Far from continental crust, it can measure geoneutrinos from the Earth's mantle with directional (angular) sensitivity, for example above the Pacific Large Low Shear Velocity Province (Z. Xu et al., "Towards imaging Earth's large-scale structures by directional geoneutrino detection with Ocean Bottom Detector", arXiv:2606.13273 (2026), accepted for journal publication). The 17 kt detector simulated in this repository is an OBD design study, not a built detector.
 
-Primary members of this project so far:
+**The groups.** Primary members of this project so far:
 - Tohoku University (Japan)
 - University of Hawaiʻi at Mānoa (USA)
+
+The two groups work closely together: they meet every two weeks, co-author the OBD paper above, and have presented joint conference posters.
 
 ## Licence
 
