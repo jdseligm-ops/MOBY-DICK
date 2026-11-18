@@ -27,7 +27,7 @@ The input is simulated, zero-suppressed PMT waveforms sampled every 4 ns (12,505
 | `baseline/results/test_v3e_eval.json` | The single test-split evaluation |
 | `baseline/SHA256SUMS` | sha256 of every file in `baseline/` |
 | `run.py`, `requirements.lock`, `obd_runner/` | The standalone runner: setup, fetch, predict, evaluate, train, demo (see Quick start) |
-| `demo/` | 200 validation examples, their labels and `pmt_geometry.h5` for `python run.py demo` (CC-BY-4.0) |
+| `demo/` | 200 validation examples, their labels and `pmt_geometry.h5` for `python3 run.py demo` (CC-BY-4.0) |
 | `simulation/` | Everything needed to reproduce the detector simulation and the dataset build |
 
 ## Data
@@ -51,15 +51,15 @@ The code expects one data folder holding:
 One script runs everything. It needs only Python 3.11–3.14 and internet access the first time. You do not need the SIDERIUS framework, a compiler, or admin rights.
 
 ```
-python run.py demo                          # the model on the bundled 200-example sample; no data download
-python run.py fetch                         # download + md5-check pmt_geometry.h5 and the validation files into ./data
-python run.py predict --input FILE_OR_DIR   # predictions for any waveform files (labels not needed)
-python run.py evaluate                      # the 9 task metrics on ./data/val_*.h5 (needs the labels files)
-python run.py evaluate --predictions P.json # score your own predictions file, without running the model
-python run.py train --yes                   # retrain from the train files (python run.py fetch --groups geometry,val,train)
+python3 run.py demo                          # the model on the bundled 200-example sample; no data download
+python3 run.py fetch                         # download + md5-check pmt_geometry.h5 and the validation files into ./data
+python3 run.py predict --input FILE_OR_DIR   # predictions for any waveform files (labels not needed)
+python3 run.py evaluate                      # the 9 task metrics on ./data/val_*.h5 (needs the labels files)
+python3 run.py evaluate --predictions P.json # score your own predictions file, without running the model
+python3 run.py train --yes                   # retrain from the train files (python3 run.py fetch --groups geometry,val,train)
 ```
 
-- **Setup happens automatically on first use** (or run `python run.py setup`). It does three things:
+- **Setup happens automatically on first use** (or run `python3 run.py setup`). It does three things:
   1. creates `./.venv` with Python's own `venv` module;
   2. downloads a sha256-checked `pip` wheel;
   3. installs `requirements.lock` with `pip --require-hashes --only-binary=:all: --no-deps`. These are the exact versions behind the shipped results: numpy 2.4.3, scipy 1.17.1, h5py 3.16.0, threadpoolctl 3.8.0, scikit-learn 1.9.1, skops 0.13.0, joblib 1.6.0 and their dependencies.
@@ -106,7 +106,7 @@ M = rb.load_model("baseline/final_model.skops")   # refuses unexpected types or 
 python baseline/run_baseline.py export --data_dir DATA --model baseline/final_model.skops --output_dir OUT --files 'val_*.h5'
 ```
 
-**Metrics (`evaluate`) and retraining (`train`).** These compute the declared task metrics through the SIDERIUS task package: `run_baseline.py` reads `../task/task.yaml` and the task's metric plugins. That package is part of the SIDERIUS task submission and is **not** in this repository. Use `python run.py evaluate` / `train` to run them standalone (see above).
+**Metrics (`evaluate`) and retraining (`train`).** These compute the declared task metrics through the SIDERIUS task package: `run_baseline.py` reads `../task/task.yaml` and the task's metric plugins. That package is part of the SIDERIUS task submission and is **not** in this repository. Use `python3 run.py evaluate` / `train` to run them standalone (see above).
 
 ```
 python baseline/run_baseline.py evaluate --data_dir DATA --model baseline/final_model.skops --output_dir OUT
