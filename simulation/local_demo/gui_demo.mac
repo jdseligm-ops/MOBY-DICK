@@ -1,0 +1,65 @@
+/rat/db/set DETECTOR experiment "OBD17kt"
+/rat/db/set DETECTOR geo_file "OBD17kt/OBD17kt.geo"
+/rat/db/set GEO[scintillator] material "obd_ls_li6_1p0"
+/rat/db/set GEO[inner_pmts] encapsulation_model "OBD_GLASS_SHIELD_GEL"
+/rat/db/set OPTICS[obd_ls_li6_1p0] LIGHT_YIELD 10000.0
+
+/tracking/storeTrajectory 4
+/random/setSavingFlag 1
+/run/initialize
+
+/rat/proc splitevdaq
+/rat/proc count
+/rat/procset update 1
+/rat/proclast outntuple
+/rat/procset include_tracking 0
+
+# ---------------- Geant4 (Qt/OpenGL) visualisation ----------------
+/vis/open OGLSQt 1400x1000-0+0
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+/vis/drawVolume
+/vis/geometry/set/visibility world 0 false
+/vis/geometry/set/colour ss_tank 0 0.55 0.55 0.6 0.12
+/vis/geometry/set/visibility black_liner 0 false
+/vis/geometry/set/colour buffer 0 0.6 0.6 0.9 0.04
+/vis/geometry/set/colour acrylic_vessel 0 1.0 0.55 0.15 0.18
+/vis/geometry/set/colour scintillator 0 1.0 0.85 0.3 0.10
+/vis/viewer/set/style surface
+/vis/viewer/set/hiddenMarker true
+/vis/viewer/set/background white
+/vis/viewer/set/viewpointThetaPhi 75 25 deg
+/vis/viewer/set/upVector 0 0 1
+/vis/viewer/set/cutawayMode union
+/vis/viewer/addCutawayPlane 0 0 0 m 0 -1 0
+/vis/viewer/set/targetPoint 0 0 0 m
+/vis/viewer/zoomTo 1.0
+/vis/viewer/set/autoRefresh true
+/vis/viewer/rebuild
+/vis/ogl/set/exportFormat png
+/vis/viewer/flush
+
+# event: photons that reach a PMT photocathode, coloured by particle
+/vis/scene/add/trajectories rich
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/setRGBA opticalphoton 0.1 0.55 1.0 0.45
+/vis/modeling/trajectories/drawByParticleID-0/set e+ red
+/vis/modeling/trajectories/drawByParticleID-0/set e- magenta
+/vis/modeling/trajectories/drawByParticleID-0/set neutron green
+/vis/modeling/trajectories/drawByParticleID-0/set alpha orange
+/vis/modeling/trajectories/drawByParticleID-0/set triton orange
+# only photons that END at a PMT (absorbed by ratpac's PMT optical model = G4FastSimulationManagerProcess);
+# ratpac's GLG4VisManager registers the attribute filter but not Geant4's encounteredVolumeFilter
+/vis/filtering/trajectories/create/attributeFilter pmtPhotons
+/vis/filtering/trajectories/pmtPhotons/setAttribute EPN
+/vis/filtering/trajectories/pmtPhotons/addValue G4FastSimulationManagerProcess
+/vis/scene/endOfEventAction accumulate
+/vis/viewer/set/cutawayMode union
+/generator/add combo ibd:fill
+/generator/ibd/spectrum geo_U238
+/generator/vtx/set 0 0 0
+/generator/pos/set 0 0 0
+/run/beamOn 1
+/vis/viewer/rebuild
+/vis/viewer/flush
+# screenshots: type  /control/execute export_views.mac  in the GUI Session box (exports the views at window size)

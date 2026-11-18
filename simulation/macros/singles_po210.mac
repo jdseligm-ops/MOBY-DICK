@@ -1,0 +1,31 @@
+# OBD17kt_geo (2026-11-13): 210Po alpha singles (5.304 MeV) uniform in the scintillator. In a 6Li-loaded LS these are
+# the most dangerous accidental "delayed-like" events: the quenched alpha light (~0.3-0.4 MeVee in KamLAND LS,
+# PRC 92, 055808 Sec. III.A) and its alpha-like pulse shape sit next to the n+6Li alpha+triton capture signal.
+# Placeholders as in ibd_geo.mac (__NEVENTS__, __LS_MATERIAL__, __SHIELD_MODEL__, __LIGHT_YIELD__).
+/rat/db/set DETECTOR experiment "OBD17kt"
+/rat/db/set DETECTOR geo_file "OBD17kt/OBD17kt.geo"
+/rat/db/set GEO[scintillator] material "__LS_MATERIAL__"
+/rat/db/set GEO[inner_pmts] encapsulation_model "__SHIELD_MODEL__"
+/rat/db/set OPTICS[__LS_MATERIAL__] LIGHT_YIELD __LIGHT_YIELD__
+
+/tracking/storeTrajectory 1
+/tracking/discardParticleTrajectory opticalphoton
+/random/setSavingFlag 1
+/random/saveEachEventFlag 1
+
+/run/initialize
+
+/rat/proc splitevdaq
+/rat/proc count
+/rat/procset update 10
+/rat/proclast outntuple
+/rat/procset include_tracking 1
+/rat/procset include_mcparticles 1
+/rat/procset include_mchits 1
+/rat/procset include_pmthits 1
+/rat/procset include_untriggered_events 1
+
+/generator/add combo gun:fill
+/generator/vtx/set alpha 0 0 0 5.304
+/generator/pos/set 0 0 0
+/run/beamOn __NEVENTS__

@@ -1,0 +1,33 @@
+# OBD17kt_geo (2026-11-13): 13C(alpha,n)16O background from 210Po alphas in the scintillator. The final state
+# (neutron, 16O recoil, optional 6.130 MeV gamma or 6.049 MeV e+e- pair, plus the alpha's pre-reaction energy loss as
+# a short alpha track) is pre-sampled per event by tools/make_alphan_hepevt.py into a HEPEVT ascii file, read here
+# by ratpac's HEPEvt vertex generator; the vertex is uniform in the scintillator (fill). The neutron then
+# thermalises and captures in Geant4 exactly as in IBD events (delayed signal).
+# Placeholders: __HEPEVT_FILE__ (absolute path, written by jobs/run_chunk.sh), plus those of ibd_geo.mac.
+/rat/db/set DETECTOR experiment "OBD17kt"
+/rat/db/set DETECTOR geo_file "OBD17kt/OBD17kt.geo"
+/rat/db/set GEO[scintillator] material "__LS_MATERIAL__"
+/rat/db/set GEO[inner_pmts] encapsulation_model "__SHIELD_MODEL__"
+/rat/db/set OPTICS[__LS_MATERIAL__] LIGHT_YIELD __LIGHT_YIELD__
+
+/tracking/storeTrajectory 1
+/tracking/discardParticleTrajectory opticalphoton
+/random/setSavingFlag 1
+/random/saveEachEventFlag 1
+
+/run/initialize
+
+/rat/proc splitevdaq
+/rat/proc count
+/rat/procset update 10
+/rat/proclast outntuple
+/rat/procset include_tracking 1
+/rat/procset include_mcparticles 1
+/rat/procset include_mchits 1
+/rat/procset include_pmthits 1
+/rat/procset include_untriggered_events 1
+
+/generator/add combo HEPEvt:fill
+/generator/vtx/set __HEPEVT_FILE__
+/generator/pos/set 0 0 0
+/run/beamOn __NEVENTS__

@@ -1,0 +1,967 @@
+{
+ "note": "Generated 2026-11-17 from the per-chunk provenance.json of the gel/fixed-optics production (local archive). Host names and cluster paths are omitted on purpose. seed = BASE_SEED*100000 + chunk index. Run sets with base_seed 71-77 were simulated on 2026-11-17 for the postponed option C and are not part of the published dataset.",
+ "run_sets": [
+  {
+   "run_set": "ac228_ls_gel_b59",
+   "base_seed": 59,
+   "chunks_in_archive": 25,
+   "seed_first": 5900000,
+   "seed_last": 5900024,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Ac228",
+   "spectrum": "default",
+   "isotope": "Ac228",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424801"
+   ],
+   "cpu_models": [
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "ac228_ls_gel_b75",
+   "base_seed": 75,
+   "chunks_in_archive": 4,
+   "seed_first": 7500008,
+   "seed_last": 7500019,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Ac228",
+   "spectrum": "default",
+   "isotope": "Ac228",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15467544"
+   ],
+   "cpu_models": [
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": false,
+   "role": "option-C extra val/test singles (postponed; NOT in the published data); chunk ids end in 8 (val) or 9 (test)"
+  },
+  {
+   "run_set": "alphan_gel_b51",
+   "base_seed": 51,
+   "chunks_in_archive": 250,
+   "seed_first": 5100000,
+   "seed_last": 5100249,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "alphan_hepevt",
+   "sample": "alphan",
+   "spectrum": "default",
+   "isotope": "",
+   "volume_regex": "",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424743"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz",
+    "Intel(R) Xeon(R) Gold 6418H"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "bi214_acrylic_gel_b54",
+   "base_seed": 54,
+   "chunks_in_archive": 150,
+   "seed_first": 5400000,
+   "seed_last": 5400149,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Bi214",
+   "spectrum": "default",
+   "isotope": "Bi214",
+   "volume_regex": "^acrylic_vessel$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424796"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9334 32-Core Processor",
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "bi214_acrylic_gel_b71",
+   "base_seed": 71,
+   "chunks_in_archive": 1600,
+   "seed_first": 7100008,
+   "seed_last": 7107999,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Bi214",
+   "spectrum": "default",
+   "isotope": "Bi214",
+   "volume_regex": "^acrylic_vessel$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15467537",
+    "15467538"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9334 32-Core Processor",
+    "AMD EPYC 9654 96-Core Processor",
+    "INTEL(R) XEON(R) GOLD 6548Y+",
+    "Intel(R) Xeon(R) 6952P",
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz",
+    "Intel(R) Xeon(R) Gold 5115 CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+    "Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz",
+    "Intel(R) Xeon(R) Gold 6418H"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": false,
+   "role": "option-C extra val/test singles (postponed; NOT in the published data); chunk ids end in 8 (val) or 9 (test)"
+  },
+  {
+   "run_set": "bipo212_ls_gel_b61",
+   "base_seed": 61,
+   "chunks_in_archive": 25,
+   "seed_first": 6100000,
+   "seed_last": 6100024,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_BiPo212",
+   "spectrum": "default",
+   "isotope": "BiPo212",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424803"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "bipo212_ls_gel_b76",
+   "base_seed": 76,
+   "chunks_in_archive": 4,
+   "seed_first": 7600008,
+   "seed_last": 7600019,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_BiPo212",
+   "spectrum": "default",
+   "isotope": "BiPo212",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15467545"
+   ],
+   "cpu_models": [
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": false,
+   "role": "option-C extra val/test singles (postponed; NOT in the published data); chunk ids end in 8 (val) or 9 (test)"
+  },
+  {
+   "run_set": "bipo214_ls_gel_b58",
+   "base_seed": 58,
+   "chunks_in_archive": 25,
+   "seed_first": 5800000,
+   "seed_last": 5800024,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_BiPo214",
+   "spectrum": "default",
+   "isotope": "BiPo214",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424800"
+   ],
+   "cpu_models": [
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "geoTh_gel_b42",
+   "base_seed": 42,
+   "chunks_in_archive": 250,
+   "seed_first": 4200000,
+   "seed_last": 4200249,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "ibd_geo",
+   "sample": "ibd_geo_Th232",
+   "spectrum": "geo_Th232",
+   "isotope": "",
+   "volume_regex": "",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "ibd",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424741"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "geoU_gel_b41",
+   "base_seed": 41,
+   "chunks_in_archive": 500,
+   "seed_first": 4100000,
+   "seed_last": 4100499,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "ibd_geo",
+   "sample": "ibd_geo_U238",
+   "spectrum": "geo_U238",
+   "isotope": "",
+   "volume_regex": "",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "ibd",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424740"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "k40_acrylic_gel_b53",
+   "base_seed": 53,
+   "chunks_in_archive": 500,
+   "seed_first": 5300000,
+   "seed_last": 5300499,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_K40",
+   "spectrum": "default",
+   "isotope": "K40",
+   "volume_regex": "^acrylic_vessel$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424795"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9334 32-Core Processor",
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "k40_ls_gel_b63",
+   "base_seed": 63,
+   "chunks_in_archive": 25,
+   "seed_first": 6300000,
+   "seed_last": 6300024,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_K40",
+   "spectrum": "default",
+   "isotope": "K40",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424805"
+   ],
+   "cpu_models": [
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "pa234m_ls_gel_b56",
+   "base_seed": 56,
+   "chunks_in_archive": 25,
+   "seed_first": 5600000,
+   "seed_last": 5600024,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Pa234m",
+   "spectrum": "default",
+   "isotope": "Pa234m",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424798"
+   ],
+   "cpu_models": [
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "pa234m_ls_gel_b77",
+   "base_seed": 77,
+   "chunks_in_archive": 4,
+   "seed_first": 7700008,
+   "seed_last": 7700019,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Pa234m",
+   "spectrum": "default",
+   "isotope": "Pa234m",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15467546"
+   ],
+   "cpu_models": [
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": false,
+   "role": "option-C extra val/test singles (postponed; NOT in the published data); chunk ids end in 8 (val) or 9 (test)"
+  },
+  {
+   "run_set": "pb212_ls_gel_b60",
+   "base_seed": 60,
+   "chunks_in_archive": 25,
+   "seed_first": 6000000,
+   "seed_last": 6000024,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Pb212",
+   "spectrum": "default",
+   "isotope": "Pb212",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424802"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "pb214_ls_gel_b57",
+   "base_seed": 57,
+   "chunks_in_archive": 25,
+   "seed_first": 5700000,
+   "seed_last": 5700024,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Pb214",
+   "spectrum": "default",
+   "isotope": "Pb214",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424799"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "pb214_ls_gel_b74",
+   "base_seed": 74,
+   "chunks_in_archive": 16,
+   "seed_first": 7400008,
+   "seed_last": 7400079,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Pb214",
+   "spectrum": "default",
+   "isotope": "Pb214",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15467543"
+   ],
+   "cpu_models": [
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) CPU E5-4640 v2 @ 2.20GHz",
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": false,
+   "role": "option-C extra val/test singles (postponed; NOT in the published data); chunk ids end in 8 (val) or 9 (test)"
+  },
+  {
+   "run_set": "po210_ls_gel_b52",
+   "base_seed": 52,
+   "chunks_in_archive": 100,
+   "seed_first": 5200000,
+   "seed_last": 5200099,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_po210",
+   "sample": "po210",
+   "spectrum": "default",
+   "isotope": "",
+   "volume_regex": "",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424744"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz",
+    "Intel(R) Xeon(R) Gold 6418H"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "po210_ls_gel_b72",
+   "base_seed": 72,
+   "chunks_in_archive": 440,
+   "seed_first": 7200008,
+   "seed_last": 7202199,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_po210",
+   "sample": "po210",
+   "spectrum": "default",
+   "isotope": "",
+   "volume_regex": "",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15467539",
+    "15467540"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) CPU E5-4640 v2 @ 2.20GHz",
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": false,
+   "role": "option-C extra val/test singles (postponed; NOT in the published data); chunk ids end in 8 (val) or 9 (test)"
+  },
+  {
+   "run_set": "reactor_gel_b43",
+   "base_seed": 43,
+   "chunks_in_archive": 250,
+   "seed_first": 4300000,
+   "seed_last": 4300249,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "ibd_geo",
+   "sample": "ibd_default",
+   "spectrum": "default",
+   "isotope": "",
+   "volume_regex": "",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "ibd",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424742"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz",
+    "Intel(R) Xeon(R) Gold 6418H"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "tl208_acrylic_gel_b55",
+   "base_seed": 55,
+   "chunks_in_archive": 100,
+   "seed_first": 5500000,
+   "seed_last": 5500099,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Tl208",
+   "spectrum": "default",
+   "isotope": "Tl208",
+   "volume_regex": "^acrylic_vessel$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424797"
+   ],
+   "cpu_models": [
+    "AMD EPYC 9654 96-Core Processor",
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  },
+  {
+   "run_set": "tl208_acrylic_gel_b73",
+   "base_seed": 73,
+   "chunks_in_archive": 384,
+   "seed_first": 7300008,
+   "seed_last": 7301919,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Tl208",
+   "spectrum": "default",
+   "isotope": "Tl208",
+   "volume_regex": "^acrylic_vessel$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15467541",
+    "15467542"
+   ],
+   "cpu_models": [
+    "AMD EPYC 7543P 32-Core Processor",
+    "AMD EPYC 9334 32-Core Processor",
+    "AMD EPYC 9654 96-Core Processor",
+    "INTEL(R) XEON(R) GOLD 6548Y+",
+    "Intel(R) Xeon(R) 6952P",
+    "Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz",
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz",
+    "Intel(R) Xeon(R) CPU E5-4640 v2 @ 2.20GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz",
+    "Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz",
+    "Intel(R) Xeon(R) Gold 6418H"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": false,
+   "role": "option-C extra val/test singles (postponed; NOT in the published data); chunk ids end in 8 (val) or 9 (test)"
+  },
+  {
+   "run_set": "tl208_ls_gel_b62",
+   "base_seed": 62,
+   "chunks_in_archive": 25,
+   "seed_first": 6200000,
+   "seed_last": 6200024,
+   "nevents_per_chunk": [
+    200
+   ],
+   "macro": "singles_decay0",
+   "sample": "decay0_Tl208",
+   "spectrum": "default",
+   "isotope": "Tl208",
+   "volume_regex": "^scintillator$",
+   "ls_material": "obd_ls_li6_1p0",
+   "shield_model": "OBD_GLASS_SHIELD_GEL",
+   "light_yield": 10000.0,
+   "extract_mode": "generic",
+   "ibd_geo_table_sha256": "2b3a7e1366db7ed6a3cbb881109197a9af8198a475c91034346f579dad107c33",
+   "container": {
+    "image": "docker://ratpac/ratpac-two:4.4.0",
+    "digest": "sha256:c85936d537dba4adba050c9fe4dde45a44e57454579ac96756007a925ff4c626",
+    "sif_sha256": "3b6cc869a0b17db116a5e2d751b7f6ac534714a5f25e5f00810ff3d6c4d3ecba"
+   },
+   "code_manifest_sha256": [
+    "b20a64d84dcad210992f7d8d8a49497c79e2a4a108e8a4e1bb7eb9cea09abfe5"
+   ],
+   "slurm_array_job_ids": [
+    "15424804"
+   ],
+   "cpu_models": [
+    "Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz",
+    "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz",
+    "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz"
+   ],
+   "python_numpy_root_in_container": "3.10.12 1.21.5 6.36.12",
+   "in_published_dataset_v1": true,
+   "role": "published production (gel/fixed optics)"
+  }
+ ]
+}

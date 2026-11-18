@@ -1,0 +1,35 @@
+# IBD events uniform in the OBD 17 kt Li-6 loaded scintillator, isotropic antineutrino direction.
+# Placeholders filled by the job script: __NEVENTS__, __SPECTRUM__ (IBD ratdb index: "default" = reactor 1.85-8.15 MeV),
+# __SHIELD_MODEL__ (ENCAPSULATION index: OBD_GLASS_SHIELD = air inside, OBD_GLASS_SHIELD_GEL = optical gel),
+# __LIGHT_YIELD__ (obd_ls_li6 photons/MeV; baseline 10000.0).
+# The run directory must contain OBD17kt/ (copied from ratdb/OBD17kt by the job), so the paths below resolve locally.
+/rat/db/set DETECTOR experiment "OBD17kt"
+/rat/db/set DETECTOR geo_file "OBD17kt/OBD17kt.geo"
+/rat/db/set GEO[inner_pmts] encapsulation_model "__SHIELD_MODEL__"
+/rat/db/set OPTICS[obd_ls_li6] LIGHT_YIELD __LIGHT_YIELD__
+
+# keep trajectories of everything except optical photons (needed for e+ / n end points)
+/tracking/storeTrajectory 1
+/tracking/discardParticleTrajectory opticalphoton
+
+# archive the engine state at the start of every event (runXevtY.rndm), for exact single-event replay
+/random/setSavingFlag 1
+/random/saveEachEventFlag 1
+
+/run/initialize
+
+/rat/proc splitevdaq
+/rat/proc count
+/rat/procset update 10
+/rat/proclast outntuple
+/rat/procset include_tracking 1
+/rat/procset include_mcparticles 1
+/rat/procset include_mchits 1
+/rat/procset include_pmthits 1
+/rat/procset include_untriggered_events 1
+
+/generator/add combo ibd:fill
+/generator/ibd/spectrum __SPECTRUM__
+/generator/vtx/set 0 0 0
+/generator/pos/set 0 0 0
+/run/beamOn __NEVENTS__

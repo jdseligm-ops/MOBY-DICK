@@ -1,0 +1,7 @@
+# Never commit: Enomoto-derived table (no licence; regenerate with tools/make_geo_ibd_spectrum.py)
+ratdb/OBD17kt/IBD_GEO.ratdb
+# local outputs
+runs/
+ds_mine/
+.venv-build/
+__pycache__/

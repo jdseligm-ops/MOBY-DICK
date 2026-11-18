@@ -26,6 +26,9 @@ The input is simulated, zero-suppressed PMT waveforms sampled every 4 ns (12,505
 | `baseline/results/val_v3e_metrics.json`, `val_v3e_metrics_bootstrap.json` | Validation metrics and their bootstrap intervals |
 | `baseline/results/test_v3e_eval.json` | The single test-split evaluation |
 | `baseline/SHA256SUMS` | sha256 of every file in `baseline/` |
+| `run.py`, `requirements.lock`, `obd_runner/` | The standalone runner: setup, fetch, predict, evaluate, train, demo (see Quick start) |
+| `demo/` | 200 validation examples, their labels and `pmt_geometry.h5` for `python run.py demo` (CC-BY-4.0) |
+| `simulation/` | Everything needed to reproduce the detector simulation and the dataset build |
 
 ## Data
 
@@ -43,7 +46,45 @@ The code expects one data folder holding:
 - `val_NNN.h5`;
 - `pmt_geometry.h5`.
 
-## How to run
+## Quick start: `run.py`
+
+One script runs everything. It needs only Python 3.11–3.14 and internet access the first time. You do not need the SIDERIUS framework, a compiler, or admin rights.
+
+```
+python run.py demo                          # the model on the bundled 200-example sample; no data download
+python run.py fetch                         # download + md5-check pmt_geometry.h5 and the validation files into ./data
+python run.py predict --input FILE_OR_DIR   # predictions for any waveform files (labels not needed)
+python run.py evaluate                      # the 9 task metrics on ./data/val_*.h5 (needs the labels files)
+python run.py evaluate --predictions P.json # score your own predictions file, without running the model
+python run.py train --yes                   # retrain from the train files (python run.py fetch --groups geometry,val,train)
+```
+
+- **Setup happens automatically on first use** (or run `python run.py setup`). It does three things:
+  1. creates `./.venv` with Python's own `venv` module;
+  2. downloads a sha256-checked `pip` wheel;
+  3. installs `requirements.lock` with `pip --require-hashes --only-binary=:all: --no-deps`. These are the exact versions behind the shipped results: numpy 2.4.3, scipy 1.17.1, h5py 3.16.0, threadpoolctl 3.8.0, scikit-learn 1.9.1, skops 0.13.0, joblib 1.6.0 and their dependencies.
+
+  Nothing is built from source, and nothing outside the lock is installed. Every later command re-runs itself inside `./.venv`. Tested on Linux x86_64, including a system Python 3.12 that has no `pip` or `ensurepip`. macOS is best effort; Windows is untested.
+- **Outputs.**
+  - `predict` and `demo` write `outputs/<command>/predictions.json` in the format `{"<file stem>:<6-digit index>": [geo_score, prompt x, y, z, capture x, y, z]}` (metres). A negative `geo_score` means the candidate failed the physical preselection. `--export` also writes `<file>.chain.npz`.
+  - `evaluate` writes `metrics.json` (plus `predictions.json` and `metrics_bootstrap.json` when it runs the model).
+- **Metrics without SIDERIUS.** `obd_runner/metrics.py` holds the task's metric arithmetic, copied verbatim from the task's metric plugin. On the saved v3r validation predictions it reproduces the SIDERIUS plugin's 9 metric values bit for bit. `run.py` swaps it in for the two SIDERIUS-dependent functions of `baseline/run_baseline.py`; `baseline/` itself is unchanged.
+- **Demo sample** (`demo/`): the first 200 examples of the published validation file `val_000.h5`, which is stored in random order, plus their labels file and `pmt_geometry.h5`. Like the dataset, these files are licensed CC-BY-4.0 (DOI 10.5281/zenodo.24322961; see `demo/NOTICE.md`). The demo shows that the model runs. It claims no score: 200 examples cannot resolve the S/B = 1 selection.
+- **Data download.** `fetch` downloads from the Zenodo record 10.5281/zenodo.24322961. It works only after the record has been published. Every file is checked against the size and md5 in `obd_runner/data_manifest.json`. Held-out test labels are never downloaded. If you already have the files, use `--source_dir DIR`.
+- **Measured times** (Intel i9-12950HX, 24 processes; first run from a clean checkout):
+  - `demo`, including the automatic setup: 20 s;
+  - `predict` on the 200 examples alone: 6.5 s;
+  - `evaluate` on the 49,000 validation examples: 316 s (the same predictions and metrics as the shipped run).
+
+  The recorded full retrain took 686.7 s on 20 processes (`baseline_result.json`); its peak memory was not recorded.
+
+## simulation/
+
+`simulation/`: everything needed to re-simulate the OBD 17 kt detector (ratpac-two 4.4.0 geometry, detector tables, macros, generators, digitiser, dataset builder, seeds) and build your own training sets.
+Start with `simulation/README.md` (container pin, geo-ν spectrum regeneration) and `simulation/REPRODUCE.md` (step-by-step recipe); seeds are in `simulation/SEEDS.md`.
+The geoneutrino spectra (`IBD_GEO.ratdb`) are not redistributed; `simulation/tools/make_geo_ibd_spectrum.py` downloads and checksum-verifies them.
+
+## How to run (without `run.py`)
 
 Environment used for the shipped results: Python 3.12.3, numpy 2.4.3, scipy 1.17.1, h5py 3.16.0, threadpoolctl 3.8.0, scikit-learn 1.9.1, skops 0.13.0.
 
@@ -65,7 +106,7 @@ M = rb.load_model("baseline/final_model.skops")   # refuses unexpected types or 
 python baseline/run_baseline.py export --data_dir DATA --model baseline/final_model.skops --output_dir OUT --files 'val_*.h5'
 ```
 
-**Metrics (`evaluate`) and retraining (`train`).** These compute the declared task metrics through the SIDERIUS task package: `run_baseline.py` reads `../task/task.yaml` and the task's metric plugins. That package is part of the SIDERIUS task submission and is **not** in this repository.
+**Metrics (`evaluate`) and retraining (`train`).** These compute the declared task metrics through the SIDERIUS task package: `run_baseline.py` reads `../task/task.yaml` and the task's metric plugins. That package is part of the SIDERIUS task submission and is **not** in this repository. Use `python run.py evaluate` / `train` to run them standalone (see above).
 
 ```
 python baseline/run_baseline.py evaluate --data_dir DATA --model baseline/final_model.skops --output_dir OUT
@@ -99,7 +140,7 @@ The validation interval comes from 200 bootstrap resamples, drawn within each cl
 ## Credits
 
 The overall chain is an original design. Classical methods used with credit: time-of-flight correction, tail-to-total, and the Gatti & De Martini linear filter (Nuclear Electronics II, IAEA, Vienna (1962), p. 265) as used in Borexino (Bellini et al., PRD 89, 112007 (2014), arXiv:1308.0443, §XII; Back et al., NIM A 584, 98 (2008)). Related ideas we credit:
-- pair classification with decision trees on prompt/delayed features for KamLAND geoneutrinos: H. Song, "Machine Learning in KamLAND-Zen: An Old Detector Learning New ML Tricks", NPML 2023, KamLAND-Zen collaboration talk;
+- pair classification with decision trees on prompt/delayed features for KamLAND geoneutrinos: H. Song, "Machine Learning in KamLAND-Zen: An Old Detector Learning New ML Tricks", NPML 2023, KamLAND-Zen collaboration talk (slides: "KamLAND-Zen's New ML Tricks");
 - per-hit noise classification: J. Li et al., PRD 114, 092006 (2026);
 - binned time-profile pulse-shape discrimination: Rebber et al., JINST 16, P01016 (2021); Cheng et al., EPJC 84, 482 (2024);
 - charge-based event features: Qian et al., NIM A 1010, 165527 (2021).

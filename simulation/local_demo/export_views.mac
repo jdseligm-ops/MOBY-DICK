@@ -1,0 +1,17 @@
+# Run from the ratpac GUI Session box after the event is drawn:  /control/execute export_views.mac
+/vis/ogl/set/exportFormat png
+/vis/viewer/set/viewpointThetaPhi 75 25 deg
+/vis/viewer/rebuild
+/vis/ogl/export g4_event_cutaway_3d.png
+/vis/viewer/clearCutawayPlanes
+/vis/viewer/set/viewpointThetaPhi 90 0 deg
+/vis/viewer/rebuild
+/vis/ogl/export g4_event_side_view.png
+/vis/scene/activateModel Trajectories false
+/vis/viewer/set/cutawayMode union
+/vis/viewer/addCutawayPlane 0 0 0 m 0 -1 0
+/vis/viewer/set/viewpointThetaPhi 75 25 deg
+/vis/viewer/rebuild
+/vis/ogl/export g4_geometry_cutaway.png
+/vis/scene/activateModel Trajectories true
+/vis/viewer/rebuild

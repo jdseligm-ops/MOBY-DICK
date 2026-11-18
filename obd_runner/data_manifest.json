@@ -1,0 +1,103 @@
+{
+ "zenodo_record_id": "24322961",
+ "doi": "10.5281/zenodo.24322961",
+ "license": "CC-BY-4.0",
+ "note": "md5 and size of every file in the Zenodo record (dataset version B: shuffled val/test). The record is reserved and becomes downloadable once it is published.",
+ "files": [
+  {
+   "name": "pmt_geometry.h5",
+   "size": 308312,
+   "md5": "19e3216ca53ea47ca20b1824fe0415c3"
+  },
+  {
+   "name": "test_000.h5",
+   "size": 2883688808,
+   "md5": "1ac88d37d2889ac7be765da87843658c"
+  },
+  {
+   "name": "test_000.labels.h5",
+   "size": 346843121,
+   "md5": "b34e1556ac1786b40a2fa7e4199bbf2b"
+  },
+  {
+   "name": "train_000.h5",
+   "size": 2509506080,
+   "md5": "346a699e36d1bb0501ca390c48f8c8ec"
+  },
+  {
+   "name": "train_000.labels.h5",
+   "size": 300398224,
+   "md5": "18ebf5d3249e0394524cb046543ccb07"
+  },
+  {
+   "name": "train_001.h5",
+   "size": 2506917960,
+   "md5": "5e3b47b2a42ad640b1de579810ae8446"
+  },
+  {
+   "name": "train_001.labels.h5",
+   "size": 300377978,
+   "md5": "8434e061bd97e91ce3913d5f276b7533"
+  },
+  {
+   "name": "train_002.h5",
+   "size": 2421197087,
+   "md5": "b501b6760613ce851a06db239d4b6add"
+  },
+  {
+   "name": "train_002.labels.h5",
+   "size": 288645386,
+   "md5": "bc7e1cf40cad277aa165a2b6747c6b0b"
+  },
+  {
+   "name": "train_003.h5",
+   "size": 2426926877,
+   "md5": "0b1852338f455eae8d7763e2c16925b3"
+  },
+  {
+   "name": "train_003.labels.h5",
+   "size": 248673598,
+   "md5": "365dfa6ee27b008da145701b83b80a02"
+  },
+  {
+   "name": "train_004.h5",
+   "size": 2431922163,
+   "md5": "a904df565760fd1959020f3417933c78"
+  },
+  {
+   "name": "train_004.labels.h5",
+   "size": 240871366,
+   "md5": "82d75670d39053e619766115d55ab2ab"
+  },
+  {
+   "name": "train_005.h5",
+   "size": 2420106705,
+   "md5": "235b1345a56a0d3de5898b328d18f70a"
+  },
+  {
+   "name": "train_005.labels.h5",
+   "size": 292238133,
+   "md5": "97587e1fa3c754ad0ff01122ec709112"
+  },
+  {
+   "name": "train_006.h5",
+   "size": 808645830,
+   "md5": "c9368609cb6d0f4ab392bab22cdf5e3f"
+  },
+  {
+   "name": "train_006.labels.h5",
+   "size": 111228063,
+   "md5": "58fdb7e1fae7e827cac0eb4cf169bd2b"
+  },
+  {
+   "name": "val_000.h5",
+   "size": 2879772420,
+   "md5": "b4087fd65a8e38a5b1360fff1377c40c"
+  },
+  {
+   "name": "val_000.labels.h5",
+   "size": 346773005,
+   "md5": "cad0513b6c09d6198b62ef19c58d34b6"
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "group_file": "val_000",
+ "examples": 49000,
+ "script": "shuffle_eval_group.py",
+ "script_sha256": "c5ae05b003d011979857f2d2f0faf0e993db5ebf9e278f31993a1301493d3645",
+ "source_sha256": {
+  "val_000.h5": "164c921fbc72b01499369d77dfe99e54ae67335554007a137aaff8de39325ebe",
+  "val_000.labels.h5": "6866a1b13ff87d2e9415c8781ed324e60f0978fdf212236a3733c2b1e1573f37"
+ },
+ "output_sha256": {
+  "val_000.h5": "6cda39443ef95051f3a30c7f84c09c09be359417f53f5148ade8fc00ad43275d",
+  "val_000.labels.h5": "eea9c61170235bca1e79a9527a81e4ad3af0081595839fd904dbbf3dcc393b77"
+ },
+ "output_bytes": {
+  "val_000.h5": 2879772420,
+  "val_000.labels.h5": 346773005
+ },
+ "permutation_sha256_int64_le_new_to_old": "08d6e539b89b449b67cac278b9172e4e6baa4c383f3553e5ab5de849ce3fc121",
+ "permutation_rule": "secret 256-bit key from secrets.token_bytes -> numpy default_rng(key).permutation(n); key and mapping kept privately (not published)",
+ "dropped_attribute_subsample_json_without_source_paths": {
+  "caps": {
+   "geoU": 3000,
+   "geoTh": 1000,
+   "reactor": 1000,
+   "alphan": 1500,
+   "accidental": 9000
+  },
+  "seed": 20261114,
+  "acc_alloc_per_bin": {
+   "0-1.5": 300,
+   "1.5-3": 300,
+   "3-4.5": 300,
+   "4.5-6": 300,
+   "6-9": 1200,
+   "9-12": 1800,
+   "12-20": 5200,
+   "20-1e+09": 8600
+  },
+  "rule": "per (sub-split, class[, true-separation bin for accidentals]) keep min(available, cap) uniformly at random (seed); weight x available/kept"
+ },
+ "format_attr_replaced": false,
+ "wave": {
+  "examples": 49000,
+  "attrs_written": [
+   "detector_json",
+   "format"
+  ]
+ },
+ "labels": {
+  "truth_fields": 30,
+  "attrs_written": []
+ },
+ "seconds": {
+  "permutation": 0.04,
+  "waveform": 74.2,
+  "labels": 13.8,
+  "total_incl_hashing": 92.1
+ },
+ "argv": [
+  "shuffle_eval_group.py",
+  "--wave",
+  "val_000.h5",
+  "--labels",
+  "val_000.labels.h5",
+  "--out-dir",
+  "dataset_v3e_shuffled",
+  "--private-dir",
+  "dataset_v3e_shuffled_PRIVATE"
+ ]
+}

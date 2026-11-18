@@ -1,0 +1,11 @@
+/rat/db/set DETECTOR experiment "OBD17kt"
+/rat/db/set DETECTOR geo_file "OBD17kt/OBD17kt.geo"
+/rat/db/set GEO[scintillator] material "obd_ls_li6_1p0"
+/rat/db/set GEO[inner_pmts] encapsulation_model "OBD_GLASS_SHIELD_GEL"
+/rat/db/set OPTICS[obd_ls_li6_1p0] LIGHT_YIELD 10000.0
+/run/initialize
+/glg4debug/dumpmat ppo
+/glg4debug/dumpmat scintillator_lab_ppo0p6
+/glg4debug/dumpmat obd_ls_li6_1p0
+/glg4debug/dumpmat obd_k290
+/glg4debug/dumpmat obd_acrylic

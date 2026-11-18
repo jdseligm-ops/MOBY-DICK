@@ -1,0 +1,33 @@
+# LOCAL DEMO (2026-11-14): one geo-U IBD, production settings (gel shields, LY 10000, obd_ls_li6_1p0), optical-photon trajectories KEPT for drawing. Derived from macros/ibd_geo.mac (2026-11-13, derived from macros/ibd_obd17kt.mac): IBD events uniform in the Li-6 loaded scintillator,
+# isotropic antineutrino direction. ONE macro for all IBD samples; the spectrum index selects the sample:
+#   geo_U238 = geo_U238 | geo_Th232   (ratdb/OBD17kt/IBD_GEO.ratdb, built by tools/make_geo_ibd_spectrum.py)
+#                = default                (reactor spectrum, stock ratpac IBD.ratdb)
+# Other placeholders (filled by jobs/run_chunk.sh): 1, obd_ls_li6_1p0 (obd_ls_li6_1p0 for the hackathon
+# task; obd_ls_li6 = 0.1 wt%), OBD_GLASS_SHIELD_GEL (OBD_GLASS_SHIELD = air), 10000.0 (photons/MeV, 10000.0).
+/rat/db/set DETECTOR experiment "OBD17kt"
+/rat/db/set DETECTOR geo_file "OBD17kt/OBD17kt.geo"
+/rat/db/set GEO[scintillator] material "obd_ls_li6_1p0"
+/rat/db/set GEO[inner_pmts] encapsulation_model "OBD_GLASS_SHIELD_GEL"
+/rat/db/set OPTICS[obd_ls_li6_1p0] LIGHT_YIELD 10000.0
+
+/tracking/storeTrajectory 1
+/random/setSavingFlag 1
+/random/saveEachEventFlag 1
+
+/run/initialize
+
+/rat/proc splitevdaq
+/rat/proc count
+/rat/procset update 10
+/rat/proclast outntuple
+/rat/procset include_tracking 1
+/rat/procset include_mcparticles 1
+/rat/procset include_mchits 1
+/rat/procset include_pmthits 1
+/rat/procset include_untriggered_events 1
+
+/generator/add combo ibd:fill
+/generator/ibd/spectrum geo_U238
+/generator/vtx/set 0 0 0
+/generator/pos/set 0 0 0
+/run/beamOn 1

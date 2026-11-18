@@ -1,0 +1,19 @@
+# ratpac-two smoke test: IBD events in ratpac's built-in "Validation" geometry (NOT OBD).
+# Purpose: prove that the container, generator, optics and output chain work on Koa.
+/rat/db/set DETECTOR experiment "Validation"
+/rat/db/set DETECTOR geo_file "Validation/Valid.geo"
+
+/run/initialize
+
+/rat/proc splitevdaq
+/rat/procset trigger_threshold 5.0
+/rat/proc count
+/rat/procset update 5
+/rat/proclast outntuple
+
+# IBD: antineutrino along +x, spectrum from IBD.ratdb "default", vertices filling the volume that contains the origin
+/generator/add combo ibd:fill
+/generator/vtx/set 1 0 0
+/generator/pos/set 0 0 0
+
+/run/beamOn 20

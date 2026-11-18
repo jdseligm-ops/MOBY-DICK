@@ -1,0 +1,37 @@
+# OBD17kt_geo (2026-11-13): radioactive-decay singles (accidental-coincidence background) from one isotope in one
+# detector component, using ratpac's Decay0 background generator (decay0, mode "backg"; isotopes listed in stock
+# ratdb/Decay0Backg.ratdb) and the regex position generator (uniform in the matched physical volumes, minus their
+# daughters).  Placeholders (filled by jobs/run_chunk.sh):
+#   __ISOTOPE__  e.g. U chain: Pa234m Pb214 Bi214 (BiPo214 in the LS: correlated beta-alpha, tau 237 us)
+#                Th chain: Ac228 Pb212 Bi212 Tl208 (BiPo212 in the LS)    40K: K40
+#   __VOLUME__   regex on physical-volume names, e.g.
+#                ^scintillator$   ^acrylic_vessel$   ^ss_tank$   _dome_encapsulation_phys$ (glass PMT shields)
+#                PMT glass bulbs: name to be confirmed on Koa (see docs/OBD17kt_DETECTOR_MODEL.md section 7.8, test T4)
+#   __NEVENTS__, __LS_MATERIAL__, __SHIELD_MODEL__, __LIGHT_YIELD__ as in ibd_geo.mac
+/rat/db/set DETECTOR experiment "OBD17kt"
+/rat/db/set DETECTOR geo_file "OBD17kt/OBD17kt.geo"
+/rat/db/set GEO[scintillator] material "__LS_MATERIAL__"
+/rat/db/set GEO[inner_pmts] encapsulation_model "__SHIELD_MODEL__"
+/rat/db/set OPTICS[__LS_MATERIAL__] LIGHT_YIELD __LIGHT_YIELD__
+
+/tracking/storeTrajectory 1
+/tracking/discardParticleTrajectory opticalphoton
+/random/setSavingFlag 1
+/random/saveEachEventFlag 1
+
+/run/initialize
+
+/rat/proc splitevdaq
+/rat/proc count
+/rat/procset update 10
+/rat/proclast outntuple
+/rat/procset include_tracking 1
+/rat/procset include_mcparticles 1
+/rat/procset include_mchits 1
+/rat/procset include_pmthits 1
+/rat/procset include_untriggered_events 1
+
+/generator/add combo decay0:regexfill
+/generator/vtx/set backg __ISOTOPE__
+/generator/pos/set __VOLUME__
+/run/beamOn __NEVENTS__

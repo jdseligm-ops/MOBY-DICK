@@ -1,0 +1,71 @@
+// OBD17kt_geo variant (2026-11-13, copied from projects/OBD17kt): adds obd_ls_li6_1p0 (1.0 wt% 6Li).
+// OBD 17 kt materials. Sources: OHN24 Table 5.1 (geometry, acrylic density), ONO25 p.75 (densities at 4 km depth),
+// JPCS21 p.5 (LAB + 3 g/L PPO). 6Li loading 0.1 wt% is the project choice (2026-11-12), modelled as pure 6Li.
+
+{
+"name": "ELEMENT",
+"index": "Lithium6",
+"run_range": [0, 0],
+"SYMBOL": "Li",
+"z": 3,
+"isotopes": [6],
+"isotopes_frac": [1.0],
+}
+
+// LAB + 3 g/L PPO + 0.1 wt% 6Li.  Mass fractions: PPO = 3 / 892.48 = 0.0033614; 6Li = 0.0010; LAB = remainder.
+// LAB uses ratpac's C15-C19 alkylbenzene mix ("lab"). The counter-ion / surfactant of a real Li loading
+// (e.g. Cl from 6LiCl, water) is NOT included: see docs/OBD17kt_DETECTOR_MODEL.md.
+{
+"name": "MATERIAL",
+"index": "obd_ls_li6",
+"run_range": [0, 0],
+"density": 0.89248,
+"nelements": 1,
+"nmaterials": 2,
+"elements": ["Lithium6"],
+"elemprop": [0.0010],
+"materials": ["lab", "ppo"],
+"matprop": [0.9956386, 0.0033614],
+}
+
+// LAB + 3 g/L PPO + 1.0 wt% 6Li (hackathon geoneutrino task, user decision 2026-11-13).
+// Mass fractions: PPO = 0.0033614 (as above); 6Li = 0.0100; LAB = 1 - 0.0100 - 0.0033614 = 0.9866386.
+// Density kept at the measured LS value (0.89248 g/cm3 at 4 km depth): assumption, as is the constant light yield.
+// As for obd_ls_li6, no counter-ion / surfactant is modelled (a real 1 wt% loading would need one: see docs).
+{
+"name": "MATERIAL",
+"index": "obd_ls_li6_1p0",
+"run_range": [0, 0],
+"density": 0.89248,
+"nelements": 1,
+"nmaterials": 2,
+"elements": ["Lithium6"],
+"elemprop": [0.0100],
+"materials": ["lab", "ppo"],
+"matprop": [0.9866386, 0.0033614],
+}
+
+// Hicall K-290 paraffinic buffer oil (ONO25 p.67). Composition as ratpac mineral_oil (CH2-like);
+// density measured at 4 km depth, ONO25 p.75. (OHN24's own model used C25H52 at 0.76 g/cm3.)
+{
+"name": "MATERIAL",
+"index": "obd_k290",
+"run_range": [0, 0],
+"density": 0.88817,
+"nelements": 2,
+"nmaterials": 0,
+"elements": ["Carbon", "Hydrogen"],
+"elemprop": [0.8563, 0.1437],
+}
+
+// PMMA, C5H8O2 (OHN24 Table 5.1, density 1.18)
+{
+"name": "MATERIAL",
+"index": "obd_acrylic",
+"run_range": [0, 0],
+"density": 1.18,
+"nelements": 3,
+"nmaterials": 0,
+"elements": ["Carbon", "Hydrogen", "Oxygen"],
+"elemprop": [0.59985, 0.08054, 0.31961],
+}

@@ -1,0 +1,45 @@
+// Spherical glass pressure shield around each 20-inch PMT (OHN24 Table 5.1: inner r 350 mm, outer r 360 mm;
+// Okamoto Glass, OHN24 p.32). Glass optics: ratpac borosilicate_glass (assumption).
+// Inside: air at 1 atm (assumption: no optical gel; GAP, see docs/OBD17kt_DETECTOR_MODEL.md).
+// The PMT origin (bulb equator) sits at the sphere centre; the r3600 shape spans z = -300 .. +194 mm, so it fits.
+{
+"name": "ENCAPSULATION",
+"index": "OBD_GLASS_SHIELD",
+"run_range": [0, 0],
+"construction": "hemisphere",
+"envelope_radius": 360.5,
+"encap_radius": 350.0,
+"encap_thickness": 10.0,
+"flange_rmax": 360.0,
+"front_encapsulation_material": "borosilicate_glass",
+"rear_encapsulation_material": "borosilicate_glass",
+"inside_encapsulation_material": "air",
+"use_metal_flange": 0,
+"use_optical_gel": 0,
+"use_silica_bag": 0,
+"use_cable": 0,
+"pmtposoffset": [0.0, 0.0, 0.0],
+}
+
+// Variant: same shield, with optical gel filling the front hemisphere between glass and PMT
+// (ratpac optical_grease, V-788). Selected per run via the macro's __SHIELD_MODEL__ placeholder.
+{
+"name": "ENCAPSULATION",
+"index": "OBD_GLASS_SHIELD_GEL",
+"run_range": [0, 0],
+"construction": "hemisphere",
+"envelope_radius": 360.5,
+"encap_radius": 350.0,
+"encap_thickness": 10.0,
+"flange_rmax": 360.0,
+"front_encapsulation_material": "borosilicate_glass",
+"rear_encapsulation_material": "borosilicate_glass",
+"inside_encapsulation_material": "air",
+"use_metal_flange": 0,
+"use_optical_gel": 1,
+"optical_gel_material": "optical_grease",
+"optical_gel_sub_height": 1.0,   // mm half-height cut at the equator; must be > 0 (G4Tubs), 1 mm = gel fills the whole front dome
+"use_silica_bag": 0,
+"use_cable": 0,
+"pmtposoffset": [0.0, 0.0, 0.0],
+}

@@ -1,0 +1,34 @@
+# OBD17kt_geo (2026-11-13, derived from macros/ibd_obd17kt.mac): IBD events uniform in the Li-6 loaded scintillator,
+# isotropic antineutrino direction. ONE macro for all IBD samples; the spectrum index selects the sample:
+#   __SPECTRUM__ = geo_U238 | geo_Th232   (ratdb/OBD17kt/IBD_GEO.ratdb, built by tools/make_geo_ibd_spectrum.py)
+#                = default                (reactor spectrum, stock ratpac IBD.ratdb)
+# Other placeholders (filled by jobs/run_chunk.sh): __NEVENTS__, __LS_MATERIAL__ (obd_ls_li6_1p0 for the hackathon
+# task; obd_ls_li6 = 0.1 wt%), __SHIELD_MODEL__ (OBD_GLASS_SHIELD = air), __LIGHT_YIELD__ (photons/MeV, 10000.0).
+/rat/db/set DETECTOR experiment "OBD17kt"
+/rat/db/set DETECTOR geo_file "OBD17kt/OBD17kt.geo"
+/rat/db/set GEO[scintillator] material "__LS_MATERIAL__"
+/rat/db/set GEO[inner_pmts] encapsulation_model "__SHIELD_MODEL__"
+/rat/db/set OPTICS[__LS_MATERIAL__] LIGHT_YIELD __LIGHT_YIELD__
+
+/tracking/storeTrajectory 1
+/tracking/discardParticleTrajectory opticalphoton
+/random/setSavingFlag 1
+/random/saveEachEventFlag 1
+
+/run/initialize
+
+/rat/proc splitevdaq
+/rat/proc count
+/rat/procset update 10
+/rat/proclast outntuple
+/rat/procset include_tracking 1
+/rat/procset include_mcparticles 1
+/rat/procset include_mchits 1
+/rat/procset include_pmthits 1
+/rat/procset include_untriggered_events 1
+
+/generator/add combo ibd:fill
+/generator/ibd/spectrum __SPECTRUM__
+/generator/vtx/set 0 0 0
+/generator/pos/set 0 0 0
+/run/beamOn __NEVENTS__
