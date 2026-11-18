@@ -1,0 +1,158 @@
+{
+ "schema_version": 1,
+ "framework": "sklearn",
+ "model_format": "skops",
+ "hyperparameters": {
+  "subsets_per_class": {
+   "stage1": [
+    400,
+    150,
+    250,
+    300,
+    500
+   ],
+   "stage2_dist": [
+    700,
+    250,
+    450,
+    600,
+    1000
+   ],
+   "stage4_calibration": [
+    4000,
+    1500,
+    2500,
+    12000,
+    30000
+   ]
+  },
+  "stage1": {
+   "rows_per_example": 300,
+   "holdout_fraction": 0.2,
+   "keep_real_fraction": 0.95,
+   "rf": {
+    "n_estimators": 40,
+    "max_leaf_nodes": 256,
+    "min_samples_leaf": 20,
+    "max_features": "sqrt"
+   }
+  },
+  "stage2": {
+   "rf": {
+    "n_estimators": 40,
+    "max_leaf_nodes": 128,
+    "min_samples_leaf": 3,
+    "max_features": "sqrt",
+    "class_weight": "balanced_subsample"
+   }
+  },
+  "dist": {
+   "rows_per_example": 200,
+   "holdout_fraction": 0.2,
+   "forward_bin_m": 1.0,
+   "forward_min_rows": 200,
+   "hgb": {
+    "loss": "absolute_error",
+    "max_iter": 200,
+    "max_leaf_nodes": 31,
+    "learning_rate": 0.1,
+    "early_stopping": false
+   }
+  },
+  "stage4": {
+   "rf": {
+    "n_estimators": 100,
+    "max_leaf_nodes": 128,
+    "min_samples_leaf": 5,
+    "max_features": "sqrt"
+   },
+   "presel_quantiles": [
+    0.005,
+    0.995
+   ],
+   "presel_dR_quantile": 0.99,
+   "weight_temper": 0.5
+  },
+  "calibration": {
+   "hgb": {
+    "loss": "absolute_error",
+    "max_iter": 100,
+    "max_leaf_nodes": 31,
+    "learning_rate": 0.1,
+    "early_stopping": false
+   }
+  },
+  "std": {
+   "v_eff_grid": [
+    0.08,
+    0.1,
+    0.12,
+    0.14,
+    0.16,
+    0.18,
+    0.2,
+    0.22
+   ]
+  },
+  "psd": {
+   "v_g_grid": [
+    0.14,
+    0.15,
+    0.16,
+    0.17,
+    0.18,
+    0.19,
+    0.2,
+    0.21,
+    0.22
+   ],
+   "gatti_floor": 0.001,
+   "proton_recoil_excess_mev": 1.0,
+   "shape_source": "stage4",
+   "dark_subtract": false
+  },
+  "chunk_examples": 100,
+  "bootstrap_resamples": 200
+ },
+ "seed": 20261114,
+ "evaluation_split": "validation",
+ "metrics": {
+  "obd_accidentals_at_90pct_signal": 375.0,
+  "obd_combined": 0.7022938520817925,
+  "obd_combined_val_wedge": 0.7115179046790714,
+  "obd_fom_best": 0.6482518087873834,
+  "obd_median_capture_error_m": 0.6032682096003426,
+  "obd_median_prompt_error_m": 0.6002066013744798,
+  "obd_position_score": 0.6991312972562944,
+  "obd_selection_efficiency": 0.7054564069072906,
+  "obd_selection_efficiency_sb0p1": 0.8849068775526
+ },
+ "tolerance": {
+  "obd_accidentals_at_90pct_signal": 6.0,
+  "obd_combined": 0.00296,
+  "obd_combined_val_wedge": 0.0022,
+  "obd_fom_best": 0.00459,
+  "obd_median_capture_error_m": 0.00143,
+  "obd_median_prompt_error_m": 0.0012,
+  "obd_position_score": 0.00064,
+  "obd_selection_efficiency": 0.00601,
+  "obd_selection_efficiency_sb0p1": 0.00191
+ },
+ "hardware": {
+  "device": "cpu",
+  "description": "12th Gen Intel(R) Core(TM) i9-12950HX, --procs 20 (results are independent of the process count)"
+ },
+ "wall_time": {
+  "train_seconds": 686.7,
+  "evaluate_seconds": 323.5
+ },
+ "framework_versions": {
+  "python": "3.12.3",
+  "scikit-learn": "1.9.1",
+  "skops": "0.13.0",
+  "numpy": "2.4.3",
+  "scipy": "1.17.1",
+  "h5py": "3.16.0",
+  "siderius": "5ccb436f"
+ }
+}

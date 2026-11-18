@@ -1,0 +1,58 @@
+{
+ "point": {
+  "v3r": {
+   "obd_combined": 0.6904892206255976,
+   "obd_selection_efficiency": 0.6801629703834049,
+   "obd_position_score": 0.7008154708677903,
+   "obd_median_prompt_error_m": 0.5970730096533143,
+   "obd_median_capture_error_m": 0.5996651068755244,
+   "obd_selection_efficiency_sb0p1": 0.8936350929301752,
+   "obd_accidentals_at_90pct_signal": 370.0,
+   "obd_fom_best": 0.6641786695264427
+  }
+ },
+ "ci": {
+  "v3r": {
+   "obd_combined": [
+    0.6699155114249974,
+    0.7160386405606884
+   ],
+   "obd_selection_efficiency": [
+    0.6398483908341416,
+    0.7312055288866214
+   ],
+   "obd_position_score": [
+    0.6949198691100307,
+    0.7061990043644979
+   ],
+   "obd_median_prompt_error_m": [
+    0.5862785354634847,
+    0.6095987953247306
+   ],
+   "obd_median_capture_error_m": [
+    0.587952713990476,
+    0.6114996927498709
+   ],
+   "obd_selection_efficiency_sb0p1": [
+    0.8709883516894287,
+    0.9053659933983034
+   ],
+   "obd_accidentals_at_90pct_signal": [
+    328.975,
+    416.0
+   ],
+   "obd_fom_best": [
+    0.6406979558517236,
+    0.7051700234899717
+   ]
+  }
+ },
+ "diff": {},
+ "test_wedge": {
+  "point": 0.6713003812783408,
+  "ci": [
+   0.6614276601263417,
+   0.7115901133048326
+  ]
+ }
+}

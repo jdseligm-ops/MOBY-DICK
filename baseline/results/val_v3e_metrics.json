@@ -1,0 +1,11 @@
+{
+ "obd_accidentals_at_90pct_signal": 375.0,
+ "obd_combined": 0.7022938520817925,
+ "obd_combined_val_wedge": 0.7115179046790714,
+ "obd_fom_best": 0.6482518087873834,
+ "obd_median_capture_error_m": 0.6032682096003426,
+ "obd_median_prompt_error_m": 0.6002066013744798,
+ "obd_position_score": 0.6991312972562944,
+ "obd_selection_efficiency": 0.7054564069072906,
+ "obd_selection_efficiency_sb0p1": 0.8849068775526
+}
